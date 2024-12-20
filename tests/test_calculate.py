@@ -2,7 +2,7 @@ import sys
 
 sys.path.append("../")
 
-import calculate
+import calculate.py
 
 def test_valid():
     assert calculate.calc('circle', 'area', [5])
