@@ -21,7 +21,7 @@ jobs:
         with:
             python-version: '3.13'
 
-      - run: cat requirements.txt
+      - run: pwd
       - run: pip install -r requirements.txt
       - run: pytest
       - run: pylint *.py
