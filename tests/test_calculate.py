@@ -1,3 +1,4 @@
+import calculate
 import sys
 import os
 
@@ -5,10 +6,10 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-import calculate
 
 def test_valid():
     assert calculate.calc('circle', 'area', [5])
+
 
 def test_invalid():
     try:
@@ -26,6 +27,6 @@ def test_invalid():
     except AssertionError:
         assert True
 
+
 def test_funcValid():
     assert calculate.calc('triangle', 'perimeter', [1, 1, 1]) == 3
-
