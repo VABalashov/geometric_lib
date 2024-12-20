@@ -1,0 +1,25 @@
+name: Workflow Job
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: 
+  push:
+    branches:
+      - master
+      - release
+      - develop
+
+env:
+  FIO: Балашов Владимир Андреевич
+  GROUP_NUMBER: M3113
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$FIO $GROUP_NUMBER ${{ github.actor }}"
+      #- run: FILE=$(cat requirements.txt)
+      #- run: echo "require=$FILE" >> $GITHUB_ENV
+      - uses: actions/setup-python@v4
+        with:
+            python-version: '3.13'
+            
+      - run: pip install -r requirements.txt
+      - run: pytest
