@@ -6,6 +6,7 @@ on:
       - master
       - release
       - develop
+  workflow_dispatch:
 
 env:
   FIO: Балашов Владимир Андреевич
