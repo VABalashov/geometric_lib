@@ -1,30 +1,24 @@
 import circle
 import square
+import triangle
 
 
-figs = ['circle', 'square']
+figs = ['circle', 'square', 'triangle']
 funcs = ['perimeter', 'area']
 sizes = {}
 
 def calc(fig, func, size):
-        '''
-        Функция вычисляет и выводит в консоль результат выбранной функции для заданной фигуры и ее размеров
-    
-                Параметры:
-                        fig  (str): Название фигуры
-                        func (str): Название функции, которая будет выполнена для фигуры
-                        size (arr): Массив, с размерами фигуры
+    if type(size) != int:
+        sizeAllNumbers = [type(x) == int for x in size]
+    else:
+        sizeAllNumbers = [type(size) == int]
 
-                Выводимое значение:
+    assert fig in figs
+    assert func in funcs
+    assert all(sizeAllNumbers)
 
-                        Печатает результат вычисления функции в формате f'{func} of {fig} is {result}'
-        '''
-                 
-	assert fig in figs
-	assert func in funcs
-
-	result = eval(f'{fig}.{func}(*{size})')
-	print(f'{func} of {fig} is {result}')
+    result = eval(f'{fig}.{func}(*{size})')
+    return result
 
 if __name__ == "__main__":
 	func = ''
@@ -38,7 +32,7 @@ if __name__ == "__main__":
 		func = input(f"Enter function name, avaliable are {funcs}:\n")
 	
 	while len(size) != sizes.get(f"{func}-{fig}", 1):
-		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
+		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square, 3 for triangle\n").split(' ')))
 	
 	calc(fig, func, size)
 
