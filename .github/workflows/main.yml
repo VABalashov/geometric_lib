@@ -16,8 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "$FIO $GROUP_NUMBER ${{ github.actor }}"
-      #- run: FILE=$(cat requirements.txt)
-      #- run: echo "require=$FILE" >> $GITHUB_ENV
       - uses: actions/setup-python@v4
         with:
             python-version: '3.13'
