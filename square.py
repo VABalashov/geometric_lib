@@ -8,11 +8,11 @@ def area(a):
             Возвращаемое значение:
                 a * a(int, float): квадрат числа a
     '''
-    return a * a
+     return a * a
 
 
 def perimeter(a):
-         ''' Возвращает либо периметр, либо четыре строки a
+     ''' Возвращает либо периметр, либо четыре строки a
 
             Параметры:
                 a (int, float, string) - на что умножаем 
@@ -22,4 +22,4 @@ def perimeter(a):
                 либо
                 4 * a(string): четыре строки a
     '''
-    return 4 * a
+     return 4 * a
