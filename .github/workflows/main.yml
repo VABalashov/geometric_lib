@@ -21,7 +21,7 @@ jobs:
         with:
             python-version: '3.13'
 
-      - run: ls
+      - run: echo $(ls)
       - run: pip install -r requirements.txt
       - run: pytest
       - run: pylint *.py
