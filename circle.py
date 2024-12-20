@@ -23,3 +23,4 @@ def perimeter(r):
                 2 * math.pi * r (int, float) - периметр окружности
     '''
     return 2 * math.pi * r
+
