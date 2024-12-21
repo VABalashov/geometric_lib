@@ -1,0 +1,27 @@
+name: Workflow Job
+
+on: 
+  push:
+    branches:
+      - master
+      - release
+      - develop
+      - tests
+  workflow_dispatch:
+
+env:
+  FIO: Балашов Владимир Андреевич
+  GROUP_NUMBER: M3113
+jobs:
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$FIO $GROUP_NUMBER ${{ github.actor }}"
+      - uses: actions/setup-python@v4
+        with:
+            python-version: '3.13'
+      - uses: actions/checkout@v1
+      - run: pip install -r requirements.txt
+      - run: pytest
+      - run: pylint --disable=W --disable=C --disable=R *.py
+      - run: pylint --disable=W --disable=C --disable=R --disable=E tests/*.py
